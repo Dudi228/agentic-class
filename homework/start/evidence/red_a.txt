@@ -1,0 +1,257 @@
+
+> test
+> vitest run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.5 [39m[90m/mnt/d/agentic-class/homework/start[39m
+
+ [31m❯[39m src/tasks.test.ts [2m([22m[2m28 tests[22m[2m | [22m[31m13 failed[39m[2m)[22m[32m 17[2mms[22m[39m
+   [31m❯[39m базовая доска [2m(2)[22m
+[31m     [31m×[31m создаёт задачу и обрезает название[39m[32m 7[2mms[22m[39m
+     [32m✓[39m фильтрует готовые задачи[32m 0[2mms[22m[39m
+   [31m❯[39m R1 [2m(18)[22m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+     [32m✓[39m не дает переименовать в любую пустую строку[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m обрезает пробелы[39m[32m 0[2mms[22m[39m
+   [32m✓[39m R2 [2m(7)[22m
+     [32m✓[39m не показывать пустые строки[32m 0[2mms[22m[39m
+     [32m✓[39m не показывать пустые строки[32m 0[2mms[22m[39m
+     [32m✓[39m не показывать пустые строки[32m 0[2mms[22m[39m
+     [32m✓[39m не показывать пустые строки[32m 2[2mms[22m[39m
+     [32m✓[39m не показывать пустые строки[32m 0[2mms[22m[39m
+     [32m✓[39m не показывать пустые строки[32m 0[2mms[22m[39m
+     [32m✓[39m не показывает пустую строку из сохранённых данных[32m 0[2mms[22m[39m
+   [32m✓[39m R3 [2m(1)[22m
+     [32m✓[39m счетчик не чситает пустую строку[32m 0[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 13 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mбазовая доска[2m > [22mсоздаёт задачу и обрезает название
+[31m[1mAssertionError[22m: expected '  Купить хлеб  ' to be 'Купить хлеб' // Object.is equality[39m
+
+Expected: [32m"Купить хлеб"[39m
+Received: [31m"[7m  [27mКупить хлеб[7m  [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m9:29[22m[39m
+    [90m  7|[39m     it("создаёт задачу и обрезает название", () => {
+    [90m  8|[39m         const task = createTask(9, "  Купить хлеб  ")
+    [90m  9|[39m         expect(task?.title).toBe("Купить хлеб")
+    [90m   |[39m                             [31m^[39m
+    [90m 10|[39m     })
+    [90m 11|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected '\tabc' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m	[27mabc"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected '\tabc ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m	[27mabc[7m [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected '\tabc\t' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m	[27mabc[7m	[27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected '\tabc  ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m	[27mabc[7m  [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc\t' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m	[27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc\t' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m	[27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/tasks.test.ts[2m > [22mR1[2m > [22mобрезает пробелы
+[31m[1mAssertionError[22m: expected ' abc ' to be 'abc' // Object.is equality[39m
+
+Expected: [32m"abc"[39m
+Received: [31m"[7m [27mabc[7m [27m"[39m
+
+[36m [2m❯[22m src/tasks.test.ts:[2m25:41[22m[39m
+    [90m 23|[39m     it.each(["\tabc", "\tabc ", "\tabc\t", "\tabc \u00A0", " abc ", " …
+    [90m 24|[39m
+    [90m 25|[39m         expect(createTask(2, b)?.title).toBe("abc")
+    [90m   |[39m                                         [31m^[39m
+    [90m 26|[39m     })
+    [90m 27|[39m })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/13]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m13 failed[39m[22m[2m | [22m[1m[32m15 passed[39m[22m[90m (28)[39m
+[2m   Start at [22m 20:19:27
+[2m   Duration [22m 6.46s[2m (import 52%, worker 25%, transform 19%, tests 4%)[22m
+
